@@ -292,7 +292,7 @@ public ArrayList<Donor> DonorList()
             DataBase db=new DataBase();
             String name = db.Fetchname( City,  hospital);
             u.Name.setText(name);
-             u.pack();
+            u.pack();
             u.setVisible(true);
             this.dispose();
             byte[] img = db.getimage(City,hospital); 
