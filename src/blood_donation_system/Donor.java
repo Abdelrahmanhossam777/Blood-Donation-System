@@ -19,7 +19,7 @@ public class Donor {
         this.ID=ID;
         this.Name=Name;
         this.BloodType=BloodType;
-        this.Hospital=Hospital;
+        this.Hospital=Hospital; 
         this.Noodbags=Noodbags;
 
    }
