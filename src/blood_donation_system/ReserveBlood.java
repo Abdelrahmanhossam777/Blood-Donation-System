@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -154,6 +155,8 @@ public ArrayList<Blood> BloodList()
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jtextbox_Search = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -334,6 +337,18 @@ public ArrayList<Blood> BloodList()
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Blood Donation System");
 
+        jtextbox_Search.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtextbox_Search.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(52, 134, 190)));
+        jtextbox_Search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtextbox_SearchKeyReleased(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Search");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
@@ -403,7 +418,12 @@ public ArrayList<Blood> BloodList()
                                         .addGap(110, 110, 110)
                                         .addComponent(jButton1)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 713, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtextbox_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 713, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(66, 66, 66))
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -470,7 +490,11 @@ public ArrayList<Blood> BloodList()
                         .addGap(16, 16, 16))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68)
+                        .addGap(41, 41, 41)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtextbox_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addGap(11, 11, 11))
         );
@@ -656,6 +680,18 @@ public ArrayList<Blood> BloodList()
             }
        }
     }//GEN-LAST:event_jButton1ActionPerformed
+public void Filter (String query)
+{
+    TableRowSorter<DefaultTableModel> tr=new TableRowSorter<DefaultTableModel>((DefaultTableModel) jTable1.getModel());
+    jTable1.setRowSorter(tr);
+    tr.setRowFilter(javax.swing.RowFilter.regexFilter(query));
+  
+}
+    private void jtextbox_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtextbox_SearchKeyReleased
+        // TODO add your handling code here:
+        String query =jtextbox_Search.getText();
+        Filter(query);
+    }//GEN-LAST:event_jtextbox_SearchKeyReleased
 
     /**
      * @param args the command line arguments
@@ -696,6 +732,7 @@ public ArrayList<Blood> BloodList()
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
     public javax.swing.JLabel jLabel20;
     public javax.swing.JLabel jLabel21;
     public javax.swing.JLabel jLabel22;
@@ -726,6 +763,7 @@ public ArrayList<Blood> BloodList()
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jtextbox_Search;
     private keeptoo.KGradientPanel kGradientPanel1;
     // End of variables declaration//GEN-END:variables
 }

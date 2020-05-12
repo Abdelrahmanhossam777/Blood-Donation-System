@@ -32,6 +32,10 @@ public class NormalUser extends javax.swing.JFrame {
     byte[] person_image=null;
     public NormalUser() {
         initComponents();
+        jPanel3.setBackground(Color.RED);
+        jPanel4.setBackground(Color.RED);
+        jPanel5.setBackground(Color.RED);
+        jPanel7.setBackground(Color.RED);
         this.setLocationRelativeTo(null);
         jButton3.setEnabled(false);
         String[] arr = new String[]{"C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back1.png",
@@ -145,7 +149,6 @@ public class NormalUser extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -176,6 +179,11 @@ public class NormalUser extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
         jTextField4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 204, 204)));
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField4KeyReleased(evt);
+            }
+        });
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -195,6 +203,11 @@ public class NormalUser extends javax.swing.JFrame {
         jLabel8.setText("ID");
 
         jTextField3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 204, 204)));
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField3KeyReleased(evt);
+            }
+        });
 
         jPanel5.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -236,6 +249,11 @@ public class NormalUser extends javax.swing.JFrame {
         );
 
         jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 204, 204)));
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField2KeyReleased(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 204, 204));
@@ -254,21 +272,22 @@ public class NormalUser extends javax.swing.JFrame {
         jLabel2.setText("New Password");
 
         jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 204, 204)));
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1KeyReleased(evt);
+            }
+        });
 
         jPasswordField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 204, 204)));
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyReleased(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 204, 204));
         jLabel1.setText("New User Name");
-
-        jButton1.setBackground(new java.awt.Color(16, 201, 203));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Check");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jButton3.setBackground(new java.awt.Color(16, 201, 203));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
@@ -287,6 +306,9 @@ public class NormalUser extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jLabel10)
@@ -295,11 +317,7 @@ public class NormalUser extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -355,9 +373,7 @@ public class NormalUser extends javax.swing.JFrame {
                         .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3))
+                .addComponent(jButton3)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -544,59 +560,6 @@ public class NormalUser extends javax.swing.JFrame {
         this.setState(NormalUser.ICONIFIED);
     }//GEN-LAST:event_jLabel4MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        String userName= jTextField1.getText();
-       boolean emailcheck=IsValid(jTextField3.getText());
-        DataBase db=new DataBase();
-        Boolean z;
-        z=db.checkUserName(userName);
-         if (userName.isEmpty())
-        {
-             jPanel3.setBackground(Color.RED);
-             jButton3.setEnabled(false);
-        }
-        else if (z==false)
-        {
-            jPanel3.setBackground(Color.GREEN);
-            
-        }
-        else
-        {
-             jPanel3.setBackground(Color.RED);
-             jButton3.setEnabled(false);
-        }
-         
-         if (emailcheck)
-         {
-         jPanel5.setBackground(Color.GREEN);
-         }
-         else
-         {
-         jPanel5.setBackground(Color.RED);
-         }
-         boolean phone=PhoneIsValid(jTextField4.getText());
-         if (phone)
-         {
-         jPanel7.setBackground(Color.GREEN);
-         }
-         else
-         {
-         jPanel7.setBackground(Color.RED);
-         }
-         boolean pass= PasswordIsValid(jPasswordField1.getText());
-         if (pass)
-         {
-         jPanel4.setBackground(Color.GREEN);
-         }
-         else
-         {
-         jPanel4.setBackground(Color.RED);
-         }
-         if (pass && phone && emailcheck && !z)
-         jButton3.setEnabled(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         String name=jTextField2.getText();
@@ -669,6 +632,123 @@ public class NormalUser extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
+        // TODO add your handling code here:
+          // TODO add your handling code here:
+       
+    }//GEN-LAST:event_jTextField2KeyReleased
+boolean emailcheck=false;
+boolean z=false;
+boolean pass=false;
+boolean phone=false;
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+        // TODO add your handling code here:
+          // TODO add your handling code here:
+        String userName= jTextField1.getText();
+        DataBase db=new DataBase();
+        
+        z=db.checkUserName(userName);
+         if (userName.isEmpty())
+        {
+             jPanel3.setBackground(Color.RED);
+             jButton3.setEnabled(false);
+        }
+        else if (z==false)
+        {
+            jPanel3.setBackground(Color.GREEN);
+            
+        }
+        else
+        {
+             jPanel3.setBackground(Color.RED);
+             jButton3.setEnabled(false);
+        }
+         
+//         if (emailcheck)
+//         {
+//         jPanel5.setBackground(Color.GREEN);
+//         }
+//         else
+//         {
+//         jPanel5.setBackground(Color.RED);
+//         }
+//         boolean phone=PhoneIsValid(jTextField4.getText());
+//         if (phone)
+//         {
+//         jPanel7.setBackground(Color.GREEN);
+//         }
+//         else
+//         {
+//         jPanel7.setBackground(Color.RED);
+//         }
+//         boolean pass= PasswordIsValid(jPasswordField1.getText());
+//         if (pass)
+//         {
+//         jPanel4.setBackground(Color.GREEN);
+//         }
+//         else
+//         {
+//         jPanel4.setBackground(Color.RED);
+//         }
+         if (pass && phone && emailcheck && !z)
+         jButton3.setEnabled(true);
+    }//GEN-LAST:event_jTextField1KeyReleased
+
+    private void jPasswordField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyReleased
+        // TODO add your handling code here:
+          // TODO add your handling code here:
+        String userName= jTextField1.getText();
+      
+      
+          pass= PasswordIsValid(jPasswordField1.getText());
+         if (pass)
+         {
+         jPanel4.setBackground(Color.GREEN);
+         }
+         else
+         {
+         jPanel4.setBackground(Color.RED);
+         }
+         if (pass && phone && emailcheck && !z)
+        jButton3.setEnabled(true);
+    }//GEN-LAST:event_jPasswordField1KeyReleased
+
+    private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
+        // TODO add your handling code here:
+          // TODO add your handling code here:
+        String userName= jTextField1.getText();
+        emailcheck=IsValid(jTextField3.getText());
+      
+         
+         if (emailcheck)
+         {
+         jPanel5.setBackground(Color.GREEN);
+         }
+         else
+         {
+         jPanel5.setBackground(Color.RED);
+         }
+         if (pass && phone && emailcheck && !z)
+         jButton3.setEnabled(true);
+    }//GEN-LAST:event_jTextField3KeyReleased
+
+    private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
+        // TODO add your handling code here:
+          // TODO add your handling code here:
+       
+          phone=PhoneIsValid(jTextField4.getText());
+         if (phone)
+         {
+         jPanel7.setBackground(Color.GREEN);
+         }
+         else
+         {
+         jPanel7.setBackground(Color.RED);
+         }
+         if (pass && phone && emailcheck && !z)
+         jButton3.setEnabled(true);
+    }//GEN-LAST:event_jTextField4KeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -705,7 +785,6 @@ public class NormalUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -714,10 +793,6 @@ public class NormalUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -727,7 +802,6 @@ public class NormalUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -735,7 +809,6 @@ public class NormalUser extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

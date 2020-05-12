@@ -19,6 +19,9 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.net.HttpURLConnection;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -54,7 +57,45 @@ public class NewJFrame extends javax.swing.JFrame {
         String filename= arr[i];
         ImageIcon imageicon=new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_SMOOTH));
         jLabel6.setIcon(imageicon);
+        Connection conn = null;
+        Statement stmt = null;
+        int counter = 0;
         
+         String DB_URL = "jdbc:derby://localhost:1527/BloodDonation";
+        String USER = "app";
+        String PASS = "app";
+        Boolean Found=false;
+       
+        try{
+            //STEP 2: Register JDBC driver
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+
+            //STEP 3: Open a connection
+            System.out.println("Connecting to database...");
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            //STEP 4: Execute a query
+            System.out.println("Creating statement...");
+            stmt = conn.createStatement();
+            String sql1;
+            sql1 = "Select HOSPITAL from USERS where CITY='"+jComboBox1.getSelectedItem().toString() +"' ";
+            ResultSet res = stmt.executeQuery(sql1);
+            jComboBox2.removeAllItems();
+            while (res.next()) {
+                jComboBox2.addItem(res.getString("HOSPITAL"));
+            }
+            res.close();
+            stmt.close();
+            conn.close();
+        } catch (SQLException se) {
+            //Handle errors for JDBC
+            se.printStackTrace();
+        } catch (Exception e) {
+            //Handle errors for Class.forName
+            e.printStackTrace();
+        } finally {
+           
+        }
   
     }
 
@@ -372,46 +413,10 @@ public class NewJFrame extends javax.swing.JFrame {
         double code = db.MaxRestore (mail);
         int x =(int)code;
         String s=String.valueOf(x);
-        String phone="+0201205427791";
-        //        MailApp m=new MailApp();
-        //        m.sub_text.setText("Password Message");
-        //        m.mail_text.setText(mail);
-        //        m.msg_text.setText("Your Reset Code is "+code+".");
-        // m.setVisible(true);
+        
         String user = "BloodDonationSyst@gmail.com";
         String pass = "BloodSystem";
         SendMail.send(mail,"Password Message", "Your Reset Code is "+s+".", user, pass);
-        /*  try {
-            // Construct data
-            String apiKey = "apikey=" + "N93xt6H0FKY-8uEDSarSYnowqWVrayxr3iIBt7E8TN";
-            String message = "&message=" + "Your Reset Code is "+s+".";
-            String sender = "&sender=" + "Blood Donation System";
-            String numbers = "&numbers=" + "0201145303277";
-
-            // Send data
-            HttpURLConnection conn = (HttpURLConnection) new URL("https://api.txtlocal.com/send/?").openConnection();
-            String data = apiKey + numbers + message + sender;
-            conn.setDoOutput(true);
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
-            conn.getOutputStream().write(data.getBytes("UTF-8"));
-            final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            final StringBuffer stringBuffer = new StringBuffer();
-            String line;
-            while ((line = rd.readLine()) != null) {
-                stringBuffer.append(line);
-                JOptionPane.showMessageDialog(this , "Send Successfuly" , "Confirmation" , JOptionPane.INFORMATION_MESSAGE);
-            }
-            rd.close();
-
-            //return stringBuffer.toString();
-        } catch (Exception e) {
-            System.out.println("Error SMS "+e);
-            JOptionPane.showMessageDialog(this , "Error Happened" , "Error" , JOptionPane.ERROR_MESSAGE);
-            //return "Error "+e;
-        }*/
-
-        /*Vv!.tja2KapgPjU*/
         PasswordReset w= new PasswordReset();
         w.setVisible(true);
         this.dispose();
@@ -433,7 +438,46 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-        if (jComboBox1.getSelectedItem()=="Cairo")
+        Connection conn = null;
+        Statement stmt = null;
+        int counter = 0;
+        
+         String DB_URL = "jdbc:derby://localhost:1527/BloodDonation";
+        String USER = "app";
+        String PASS = "app";
+        Boolean Found=false;
+       
+        try{
+            //STEP 2: Register JDBC driver
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+
+            //STEP 3: Open a connection
+            System.out.println("Connecting to database...");
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            //STEP 4: Execute a query
+            System.out.println("Creating statement...");
+            stmt = conn.createStatement();
+            String sql1;
+            sql1 = "Select HOSPITAL from USERS where CITY='"+jComboBox1.getSelectedItem().toString() +"' ";
+            ResultSet res = stmt.executeQuery(sql1);
+            jComboBox2.removeAllItems();
+            while (res.next()) {
+                jComboBox2.addItem(res.getString("HOSPITAL"));
+            }
+            res.close();
+            stmt.close();
+            conn.close();
+        } catch (SQLException se) {
+            //Handle errors for JDBC
+            se.printStackTrace();
+        } catch (Exception e) {
+            //Handle errors for Class.forName
+            e.printStackTrace();
+        } finally {
+           
+        }
+       /* if (jComboBox1.getSelectedItem()=="Cairo")
         {
             String[] arr = new String[]{"Minstery",
                 "Adam International Hospital (IVF&ICSI)",
@@ -517,7 +561,7 @@ public class NewJFrame extends javax.swing.JFrame {
             String[] arr = new String[]{"Agial Hospital","Alexandria International Hospital"};
             DefaultComboBoxModel model = new DefaultComboBoxModel(arr);
             jComboBox2.setModel(model);
-        }
+        }*/
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void kGradientPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel2MouseClicked
