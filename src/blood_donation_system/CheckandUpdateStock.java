@@ -6,6 +6,7 @@
 package blood_donation_system;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -33,7 +34,11 @@ public class CheckandUpdateStock extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         jLabel20.setText("Cairo");
         jLabel1.setVisible(false);
-      
+      jTable1.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        jTable1.getTableHeader().setOpaque(false);
+        jTable1.getTableHeader().setBackground(new Color(32, 136, 203));
+        jTable1.getTableHeader().setForeground(new Color(0,0,0));
+        jTable1.setRowHeight(25);
     }
 public ArrayList<Blood> BloodList()
     {
@@ -288,6 +293,8 @@ public ArrayList<Blood> BloodList()
                 "Hospital", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"
             }
         ));
+        jTable1.setRowHeight(25);
+        jTable1.setSelectionBackground(new java.awt.Color(232, 57, 95));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);

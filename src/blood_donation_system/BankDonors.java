@@ -5,6 +5,8 @@
  */
 package blood_donation_system;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -29,6 +31,7 @@ public class BankDonors extends javax.swing.JFrame {
     public BankDonors() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
                 
                 TableColumn column = null;
 for (int i = 0; i < 7; i++) {
@@ -40,6 +43,11 @@ for (int i = 0; i < 7; i++) {
     }
 }
         showUser ();
+        jTable1.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        jTable1.getTableHeader().setOpaque(false);
+        jTable1.getTableHeader().setBackground(new Color(32, 136, 203));
+        jTable1.getTableHeader().setForeground(new Color(0,0,0));
+        jTable1.setRowHeight(25);
     }
     public ArrayList<Donor> DonorList()
     {
@@ -184,6 +192,9 @@ for (int i = 0; i < 7; i++) {
                 "ID", "Username", "City", "Hospital", "Blood Type", "No of bags", "Phone No.", "Accepted"
             }
         ));
+        jTable1.setRowHeight(25);
+        jTable1.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
         jLabel5.setFont(new java.awt.Font("Montserrat Alternates SemiBold", 0, 14)); // NOI18N

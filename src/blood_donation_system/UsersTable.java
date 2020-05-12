@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import static javafx.css.StyleOrigin.USER;
 import javax.swing.table.DefaultTableModel;
 import blood_donation_system.DataBase;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -56,6 +58,11 @@ for (int i = 0; i < 7; i++) {
 
 
         showUser ();
+        jTable1.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        jTable1.getTableHeader().setOpaque(false);
+        jTable1.getTableHeader().setBackground(new Color(32, 136, 203));
+        jTable1.getTableHeader().setForeground(new Color(0,0,0));
+        jTable1.setRowHeight(25);
     }
     public ArrayList<USER> UserList()
     {
@@ -157,6 +164,9 @@ for (int i = 0; i < 7; i++) {
                 "ID", "Username", "City", "Hospital", "Name", "Phone", "E-mail"
             }
         ));
+        jTable1.setRowHeight(25);
+        jTable1.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
         jPanel2.setBackground(new java.awt.Color(16, 201, 203));
