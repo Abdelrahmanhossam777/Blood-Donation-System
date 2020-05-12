@@ -40,23 +40,16 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
-        String[] arr = new String[]{"C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back1.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back2.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back3.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back4.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back5.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back6.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back7.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back8.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back9.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back10.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back11.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back12.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back13.png"};
        int i=new Random().nextInt(13);
-        String filename= arr[i];
-        ImageIcon imageicon=new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_SMOOTH));
-        jLabel6.setIcon(imageicon);
+//        String filename= arr[i];
+//        ImageIcon imageicon=new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_SMOOTH));
+        DataBase db=new DataBase();
+        byte[] img = db.getimage(i);
+                ImageIcon image = new ImageIcon(img);
+                Image im = image.getImage();
+                Image myImg = im.getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(),Image.SCALE_SMOOTH);
+                ImageIcon newImage = new ImageIcon(myImg);
+        jLabel6.setIcon(newImage);
         Connection conn = null;
         Statement stmt = null;
         int counter = 0;
@@ -321,8 +314,6 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blood_donation_system/53107-O7MESM-[Converted]2222.png"))); // NOI18N
         jLabel9.setText("jLabel6");
-
-        jLabel6.setText("jLabel6");
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blood_donation_system/ومن.png"))); // NOI18N
 

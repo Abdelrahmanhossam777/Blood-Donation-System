@@ -1486,7 +1486,9 @@ private Connection connect() {
 /******************************************************************************************************************/
 void updatepic(byte[] pic,Double ID,String filename) throws SQLException
 {
-        String updateSQL = "UPDATE USERS "
+    Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/BloodDonation","app","app");
+    Statement st = con.createStatement();       
+    String updateSQL = "UPDATE USERS "
                 + "SET IMAGED = ? "
                 + "WHERE ID=?";
 
@@ -1656,11 +1658,55 @@ return state;
 }
 /***************************************************************************************************************/
 /***************************************************************************************************************/
-
+byte[]  getimage(int ID)
+{
+   byte[] img=null;
+    try{
+                Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/BloodDonation","app","app");
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery("select IMAGE from IMAGES where ID ="+ID+"");
+                if(rs.next()){
+                    img = rs.getBytes("IMAGE");
+                    //Resize The ImageIcon
+//                    ImageIcon image = new ImageIcon(img);
+//                    Image im = image.getImage();
+//                    Image myImg = im.getScaledInstance(label.getWidth(), label.getHeight(),Image.SCALE_SMOOTH);
+//                    ImageIcon newImage = new ImageIcon(myImg);
+//                    label.setIcon(newImage);
+                }
+                
+                else{
+                    //JOptionPane.showMessageDialog(null, "No Data");
+                    
+                }
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+        return img;
+        }
 
 /***************************************************************************************************************/
 /***************************************************************************************************************/
+void updatepic(byte[] pic,int ID) throws SQLException
+{      
+    String updateSQL = "UPDATE IMAGES "
+                + "SET IMAGE = ? "
+                + "WHERE ID=?";
 
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(updateSQL)) {
+
+            // set parameters
+            pstmt.setBytes(1, pic);
+            pstmt.setDouble(2, ID);
+
+            pstmt.executeUpdate();
+            System.out.println("Stored the file in the BLOB column.");
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 /***************************************************************************************************************/
 /***************************************************************************************************************/

@@ -5,6 +5,10 @@
  */
 package blood_donation_system;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Abdelrahman Hossam
@@ -200,11 +204,15 @@ public class Terms1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        NormalUser n=new NormalUser();
-                    n.setVisible(true);
-                    n.jLabel9.setText(jLabel2.getText());
-                    this.dispose();
+        try {
+            // TODO add your handling code here:
+            NormalUser n=new NormalUser();
+            n.setVisible(true);
+            n.jLabel9.setText(jLabel2.getText());
+            this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(Terms1.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

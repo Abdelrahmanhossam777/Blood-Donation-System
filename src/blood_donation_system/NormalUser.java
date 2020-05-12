@@ -30,7 +30,7 @@ public class NormalUser extends javax.swing.JFrame {
      */
     String filename;
     byte[] person_image=null;
-    public NormalUser() {
+    public NormalUser() throws SQLException {
         initComponents();
         jPanel3.setBackground(Color.RED);
         jPanel4.setBackground(Color.RED);
@@ -38,20 +38,16 @@ public class NormalUser extends javax.swing.JFrame {
         jPanel7.setBackground(Color.RED);
         this.setLocationRelativeTo(null);
         jButton3.setEnabled(false);
-        String[] arr = new String[]{"C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back1.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back2.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back3.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back4.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back5.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back6.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back7.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back8.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back9.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back10.png"};
-       int i=new Random().nextInt(10);
-        String filename= arr[i];
-        ImageIcon imageicon=new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(jLabel14.getWidth(), jLabel14.getHeight(), Image.SCALE_SMOOTH));
-        jLabel14.setIcon(imageicon);
+        int i=new Random().nextInt(13);
+//        String filename= arr[i];
+//        ImageIcon imageicon=new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_SMOOTH));
+        DataBase db=new DataBase();
+        byte[] img = db.getimage(i);
+                ImageIcon image = new ImageIcon(img);
+                Image im = image.getImage();
+                Image myImg = im.getScaledInstance(jLabel14.getWidth(), jLabel14.getHeight(),Image.SCALE_SMOOTH);
+                ImageIcon newImage = new ImageIcon(myImg);
+        jLabel14.setIcon(newImage);
         
     }
 
@@ -630,6 +626,7 @@ public class NormalUser extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
@@ -779,7 +776,11 @@ boolean phone=false;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NormalUser().setVisible(true);
+                try {
+                    new NormalUser().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(NormalUser.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

@@ -444,9 +444,6 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel15">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel6"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="TimeLab1">
               <Properties>

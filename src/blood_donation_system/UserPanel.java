@@ -36,23 +36,16 @@ public class UserPanel extends javax.swing.JFrame {
          this.pack();
          showDate();
         showTime();
-          String[] arr = new String[]{"C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back1.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back2.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back3.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back4.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back5.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back6.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back7.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back8.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back9.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back10.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back11.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back12.png",
-                                    "C:\\Users\\Abdelrahman Hossam\\Documents\\NetBeansProjects\\Blood_Donation_System\\build\\classes\\pics\\Back13.png"};
-       int i=new Random().nextInt(13);
-        String filename= arr[i];
-        ImageIcon imageicon=new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(jLabel14.getWidth(), jLabel14.getHeight(), Image.SCALE_SMOOTH));
-        jLabel14.setIcon(imageicon);
+          int i=new Random().nextInt(13);
+//        String filename= arr[i];
+//        ImageIcon imageicon=new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_SMOOTH));
+        DataBase db=new DataBase();
+        byte[] img = db.getimage(i);
+                ImageIcon image = new ImageIcon(img);
+                Image im = image.getImage();
+                Image myImg = im.getScaledInstance(jLabel14.getWidth(), jLabel14.getHeight(),Image.SCALE_SMOOTH);
+                ImageIcon newImage = new ImageIcon(myImg);
+        jLabel14.setIcon(newImage);
         
         
          
@@ -376,8 +369,6 @@ void showTime(){
                 jLabel1MouseClicked(evt);
             }
         });
-
-        jLabel14.setText("jLabel6");
 
         TimeLab.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         TimeLab.setForeground(new java.awt.Color(255, 255, 255));
